@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block info %}
+<div class="fol">
+  <p class="fw-bold">Buat Produk</p>
+  <p class="text-muted">Produk akan di simpan di database.</p>
+</div>
+{% endblock info %} {% block content %}
+
+<form method="POST" style="background-color: var(--primary)" class="fol gap-3 p-2">
+  {% csrf_token %}
+  <div class="fol gap-1">
+    <p style="min-width: 54px" class="form-label">Nama</p>
+    <input required type="text" placeholder="Nama produk..." value="{{current_product.name}}" name="name" id="" />
+  </div>
+
+  <div class="fol gap-1">
+    <p style="min-width: 54px" class="form-label">Harga</p>
+    <input required type="number" placeholder="Harga produk.." value="{{current_product.price}}" name="price" id="" />
+  </div>
+
+  <div class="fol gap-2">
+    <p class="form-label">Kategori</p>
+    <div class="fol mx-3 gap-2">
+      {% for cat in category_list %}
+        <div class="fow gap-2">
+          <input {% if cat.id == current_product.category_id %} checked {% endif %} required style="width: 16px; accent-color: black" type="radio" value="{{cat.id}}" name="category" id="" />
+          <p class="f-12">{{cat.category_name}}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="fol gap-1">
+    <p style="min-width: 54px" class="form-label">Status</p>
+    <div style="width: fit-content; border: 1px solid var(--border)" class="fow gap-2 p-2 rounded-2">
+      <div class="fow gap-1">
+        <input {% if current_product.status_id == 1 %} checked {% endif %} style="width: 16px; accent-color: black" type="radio" name="status" value="1" id="" />
+        <p class="f-12">Bisa dijual</p>
+      </div>
+
+      <div class="fow gap-1">
+        <input  {% if current_product.status_id == 2 %} checked {% endif %} required style="width: 16px; accent-color: black" type="radio" value="2" name="status" id="" />
+        <p class="f-12">Tidak Bisa dijual</p>
+      </div>
+    </div>
+  </div>
+  <div class="fow justify-content-end">
+    <input required data-submit style="width: fit-content" class="p-2" type="submit" value="{{ button_text }}" />
+  </div>
+</form>
+{% endblock content %}

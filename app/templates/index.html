@@ -1,0 +1,45 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block info %}
+  <div class="fol flex-grow-1">
+    <div class="fw-bold">Daftar Produk</div>
+    <div class="fow f-13 alen gap-1">
+      <p class="text-muted">Filter Produk :</p>
+      <img width="16" src="{% static 'icon/icon_edit.svg' %}" alt="" />
+      <div data-filter tabindex="1" class="pore">
+        <p>{{filter}}</p>
+        <div style="width: 150px; border: 1px solid var(--border); background-color: var(--primary); top: 24px; left: 0" class="p-2 gap-2 posa rounded-2 fol f-16 zi-1">
+          <p class="fw-bold f-12">Filter</p>
+          <a href="/" style="border-bottom: 1px solid var(--border)" class="no-deco text-dark"> Semua </a>
+          <a href="?filter=bisa-dijual" style="border-bottom: 1px solid var(--border)" class="no-deco text-dark"> Bisa Dijual </a>
+          <a href="?filter=tidak-bisa-dijual" style="border-bottom: 1px solid var(--border)" class="no-deco text-dark"> Tidak Bisa Dijual </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a  href="{% url 'manage' 0 %}" style="border: 1px solid var(--border); width: fit-content" class="px-2 my-1 no-deco clickable fow gap-1 rounded-2 align-self-md-end">
+    <img width="18" src="{% static 'icon/icon_add.svg' %}" alt="" />
+    <p class="f-16 text-dark">Tambah</p>
+  </a>
+{% endblock info %}
+
+{% block content %}
+  <div data-popup style="position: fixed;" class="top-left full zi-2 force-center d-none">
+    <div data-popup-overlay style="opacity: 0.3" class="posa full top-left bg-dark"></div>
+    <div data-popup style="background-color: var(--primary); width: 300px; border: 6px solid var(--border)" class="fol pore zi-2 rounded-2 p-3 gap-2 alen">
+        <img width=24 src=" {% static 'icon/icon_trash_can.svg' %} " class="" alt="">
+        <p class="f-16 fw-bold">Hapus Produk?</p>
+        <p class="f-12 text-muted text-center">Data akan dihapus secara permanen dari database.</p>
+        <div class="fow f-16 jen gap-2 w-100">
+          <button data-popup-close style="border: 1px solid var(--tersier); background-color: transparent" class=" clickable rounded-1 flex-grow-1 ">Batal</button>
+          <a data-delete-request-url href="" class="flex-grow-1">
+            <button class=" bg-dark text-light rounded-1 clickable w-100">Hapus</button>
+          </a>
+        </div>
+      </div>
+  </div>
+  {% for product in products %} {% include 'includes/product_card.html' %} {% endfor %}
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% load static %}
+<!-- props: product(loop) -->
+<div style="background-color: var(--primary); border-bottom: 1px solid var(--border)" class="fow p-2 pore overflow-scroll">
+  <div style="min-width: 16px; min-height: 16px; background-color: var(--tersier); border-bottom-right-radius: 3px" class="f-12 posa gap-2 px-2 top-left force-center text-light">
+    <p class="fw-bold text-light"> {{ forloop.counter }} </p>
+    <p class="text-light fw-thin"> {{product.status.status_name}} </p>
+  </div>
+  <div style="min-width: 10px; min-height: 10px; background-color:  {% if product.status_id == 1 %} var(--status-ok) {% else %} var(--status-not-ok) {% endif %}; top:6px; right:6px" class="rounded-circle posa"></div>
+    
+  
+  <div class="d-flex mt-3 flex-column flex-md-row gap-2 flex-grow-1">
+    <div class="fol jen gap-1 flex-grow-1">
+        <p class="f-12 flex-grow-1 fw-bold"> {{ product.product_name }} </p>
+      <div class="d-flex flex-column flex-sm-row gap-sm-3">
+        <div class="fow gap-1 f-12">
+          <img width="12" src="{% static 'icon/icon_category.svg' %}" alt="" />
+          <p class="text-muted">Kategori</p>
+          <p class="fw-bold"> {{ product.category.category_name}} </p>
+        </div>
+        <div class="fow gap-1 f-12">
+          <img width="12" src="{% static 'icon/icon_tag.svg' %}" alt="" />
+          <p class="text-muted">Harga</p>
+          <p class="fw-bold">Rp. {{product.product_price}} </p>
+        </div>
+      </div>
+    </div>
+    <div class="f-12 align-items-end fow gap-2">
+      <a class="no-deco clickable text-muted" href="{% url 'manage' product.id %}">Edit</a>
+      <p class="no-deco clickable text-muted" onclick="request_deletion({{product.id}})">Hapus</p>
+    </div>
+  </div>
+</div>
