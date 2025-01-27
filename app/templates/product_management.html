@@ -1,11 +1,12 @@
 {% extends 'base.html' %} {% block info %}
+{% load static %}
 <div class="fol">
   <p class="fw-bold">Buat Produk</p>
   <p class="text-muted">Produk akan di simpan di database.</p>
 </div>
 {% endblock info %} {% block content %}
 
-<form method="POST" style="background-color: var(--primary)" class="fol gap-3 p-2">
+<form data-form-create-product method="POST" style="background-color: var(--primary)" class="fol gap-3 p-2">
   {% csrf_token %}
   <div class="fol gap-1">
     <p style="min-width: 54px" class="form-label">Nama</p>
@@ -15,6 +16,7 @@
   <div class="fol gap-1">
     <p style="min-width: 54px" class="form-label">Harga</p>
     <input required type="number" placeholder="Harga produk.." value="{{current_product.price}}" name="price" id="" />
+    <p data-form-error-negative-num class="f-12 d-none text-danger">Harga tidak boleh negatif...</p>
   </div>
 
   <div class="fol gap-2">
@@ -47,4 +49,7 @@
     <input required data-submit style="width: fit-content" class="p-2" type="submit" value="{{ button_text }}" />
   </div>
 </form>
+<script src="{% static 'form_create.js' %}"></script>
 {% endblock content %}
+
+

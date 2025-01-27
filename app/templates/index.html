@@ -11,7 +11,7 @@
       <img width="16" src="{% static 'icon/icon_edit.svg' %}" alt="" />
       <div data-filter tabindex="1" class="pore">
         <p>{{filter}}</p>
-        <div style="width: 150px; border: 1px solid var(--border); background-color: var(--primary); top: 24px; left: 0" class="p-2 gap-2 posa rounded-2 fol f-16 zi-1">
+        <div style="width: 150px; border: 1px solid var(--border); background-color: var(--primary);left: 0" class="p-2 gap-2 posa rounded-2 fol f-16 zi-1">
           <p class="fw-bold f-12">Filter</p>
           <a href="/" style="border-bottom: 1px solid var(--border)" class="no-deco text-dark"> Semua </a>
           <a href="?filter=bisa-dijual" style="border-bottom: 1px solid var(--border)" class="no-deco text-dark"> Bisa Dijual </a>
@@ -41,5 +41,7 @@
         </div>
       </div>
   </div>
-  {% for product in products %} {% include 'includes/product_card.html' %} {% endfor %}
+  {% for product in products %}
+    {% include 'includes/product_card.html' %}
+  {% endfor %}
 {% endblock content %}

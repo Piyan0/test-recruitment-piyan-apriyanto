@@ -1,9 +1,7 @@
 function request_deletion(product_id) {
   const main_node= document.querySelector('[data-popup]')
   const close_button= document.querySelector('[data-popup-close]')
- // const overlay= document
   const url= document.querySelector('[data-delete-request-url]')
-  
   main_node.classList.add('active')
 
   close_button.addEventListener('click', ()=>{

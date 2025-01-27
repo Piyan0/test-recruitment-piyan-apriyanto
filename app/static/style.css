@@ -24,12 +24,15 @@ p{
 }
 
 [data-filter]:focus div{
-  
-  opacity: 1
+  top: 24px;
+  opacity: 1;
+
 }
 [data-filter] div{
+  top: -190px;
+  opacity: 0;
+  transition : all 5ms ease-in-out
   
-  opacity: 0
 }
 [data-filter] div a:last-child{
   border:none!important
