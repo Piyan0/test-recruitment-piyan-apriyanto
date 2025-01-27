@@ -6,12 +6,6 @@ Buat virtual enviroment python dan aktifkan enviroment
 ```
 $ python -m venv myenv
 ```
-Install depedensi ( Berapa di directory projek)
-
-```console
-$ pip install requirements.txt
-```
-
 _Windows_
 
 ```console
@@ -22,6 +16,11 @@ _Unix atau MacOs_
 
 ```console
 $ source myenv/bin/activate
+```
+
+Install depedensi ( Berapa di directory projek)
+```console
+$ pip install requirements.txt
 ```
 
 Jalankan server ( Berada di directory project)
