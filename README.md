@@ -101,7 +101,7 @@ Setelah itu, saya menggunakan _for loop_ di django template.
 ```
 
 Tag `include` adalah tag bawaan dari Django, berguna untuk 
-memisahkan komponen dari halam utama, sehingga jika ada perubahan pada komponen tertentu
+memisahkan komponen dari halaman utama, sehingga jika ada perubahan pada komponen tertentu
 , kita hanya perlu mengedit file komponennya.
 
 
