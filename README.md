@@ -20,7 +20,7 @@ $ source myenv/bin/activate
 
 Install depedensi ( Berapa di directory projek)
 ```console
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 ```
 
 Jalankan server ( Berada di directory project)
